@@ -1,0 +1,57 @@
+:root{
+  --ink:#1b1715; --paper:#f6f1ec; --warm:#eadfd5; --line:rgba(27,23,21,.18);
+  --charcoal:#211e1c; --muted:#756c65; --coral:#fb775c;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#191716;color:var(--ink)}
+body{font-family:Arial,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;letter-spacing:-.035em}
+.page{max-width:980px;min-height:100vh;margin:0 auto;background:var(--paper);overflow:hidden}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:15px 24px;border-bottom:1px solid var(--line);font-size:11px;font-weight:800;letter-spacing:.085em}
+.pill{padding:6px 10px;border-radius:999px;background:var(--charcoal);color:#fff}
+.welcome{padding:78px 10vw 68px;background:radial-gradient(circle at 86% 7%,rgba(251,119,92,.28),transparent 25%),linear-gradient(145deg,#faf4ef,#e9ded4);border-bottom:1px solid var(--line)}
+.eyebrow{margin:0 0 28px;font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--muted)}
+.eyebrow:before{content:"";display:inline-block;width:32px;height:1px;background:var(--coral);vertical-align:middle;margin:0 10px 2px 0}
+.welcome h1{margin:0;font-size:clamp(38px,6.4vw,72px);line-height:1.01;letter-spacing:-.08em}
+.accent,.coral-text{color:var(--coral)}
+.lead{margin:28px 0 0;font-size:clamp(18px,2.65vw,28px);line-height:1.48;font-weight:600;word-break:keep-all}
+.poster-section{display:grid;grid-template-columns:250px 1fr;gap:46px;align-items:center;padding:56px 10vw;border-bottom:1px solid var(--line)}
+.poster{display:block;width:100%;box-shadow:13px 13px 0 var(--charcoal)}
+.poster-copy h2,.deadline h2,.why h2,.closing h2{margin:0;font-size:clamp(31px,4.4vw,55px);line-height:1.02;letter-spacing:-.075em}
+.poster-copy p:not(.eyebrow),.why>p:not(.eyebrow),.closing>p{font-size:17px;line-height:1.58;font-weight:560;word-break:keep-all}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border:1px solid var(--charcoal);text-decoration:none;color:var(--charcoal);font-size:12px;font-weight:900;letter-spacing:.01em;transition:.18s ease}
+.button:hover{transform:translateY(-3px);background:var(--charcoal);color:#fff}
+.button.coral{background:var(--coral);border-color:var(--coral)}
+.button.dark{background:var(--charcoal);color:#fff}
+.deadline{padding:52px 10vw 48px;background:var(--warm);border-bottom:1px solid var(--line)}
+.deadline-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:25px}
+.deadline-note{margin:0;max-width:300px;color:var(--muted);font-size:14px;font-weight:650;line-height:1.5;word-break:keep-all}
+.countdown{display:flex;width:100%;overflow:hidden;border:1px solid var(--charcoal);background:#fbf6f0}
+.countdown-unit{position:relative;flex:1;min-width:0;padding:21px 19px 16px;border-right:1px solid var(--charcoal)}
+.countdown-unit:last-child{border-right:0}
+.countdown-unit strong{display:block;font-size:clamp(43px,7vw,78px);line-height:.85;letter-spacing:-.09em;font-weight:900;font-variant-numeric:tabular-nums}
+.countdown-unit span{display:block;margin-top:11px;color:var(--muted);font-size:10px;letter-spacing:.13em;font-weight:900}
+.digit-roll{animation:digitRoll .42s cubic-bezier(.2,.8,.2,1)}
+.live-dot{position:absolute;right:15px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--coral);animation:blink 1s steps(2,end) infinite}
+.deadline-footer{display:flex;justify-content:space-between;margin-top:13px;color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.015em}
+.why{padding:58px 10vw 42px;background:var(--charcoal);color:#f8f1eb}
+.why .light{color:#d8ccc4}.why .light:before{background:var(--coral)}
+.why>p:not(.eyebrow){max-width:650px;color:#ded4cd}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;padding:0 10vw 62px;background:var(--charcoal)}
+.cards article{min-height:143px;padding:20px;border:1px solid rgba(255,255,255,.18);color:#fbf4ed}
+.cards span{display:block;margin-bottom:17px;color:#f9a08f;font-size:11px;font-weight:900;letter-spacing:.12em}
+.cards p{margin:0;font-size:16px;line-height:1.45;font-weight:650;word-break:keep-all}
+.closing{padding:68px 10vw 74px;text-align:center;background:#f0e9e2}
+.closing .eyebrow{margin-bottom:15px}
+.closing>p{margin:18px auto 27px;max-width:500px}
+footer{padding:19px 20px;background:#dfd2c8;color:#6c625b;font-size:10px;font-weight:800;letter-spacing:.08em;text-align:center}
+@keyframes digitRoll{0%{transform:translateY(-18px);opacity:0;filter:blur(1px)}55%{transform:translateY(3px);opacity:1}100%{transform:translateY(0);opacity:1;filter:blur(0)}}
+@keyframes blink{50%{opacity:.2}}
+@media(max-width:680px){
+  .welcome,.poster-section,.deadline,.why,.cards,.closing{padding-left:24px;padding-right:24px}
+  .poster-section{grid-template-columns:1fr;gap:28px}.poster{max-width:260px}
+  .deadline-head{display:block}.deadline-note{max-width:none;margin-top:16px}
+  .countdown-unit{padding:15px 9px 13px}.countdown-unit strong{font-size:clamp(31px,9vw,46px)}.countdown-unit span{font-size:8px}
+  .live-dot{right:8px;top:8px}.deadline-footer{gap:7px;align-items:flex-start;flex-direction:column}
+  .cards{grid-template-columns:1fr}.actions{display:grid}.button{width:100%}
+}
